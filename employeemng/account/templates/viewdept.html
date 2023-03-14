@@ -1,0 +1,23 @@
+{% extends 'index.html'%}
+{% block index%}
+    <h1 class="bg-info">DEPARTMENT LIST</h1>
+    <table class="table table-stripped">
+        <tr>
+            <th>DEPARTMENT NUMBER</th>
+            <th>DEPARTMENT NAME</th>
+            <th>DESCRIPTION</th>
+        </tr>
+        {%for i in data%}
+        <tr>
+            <td>{{i.Deptno}}</td>
+            <td>{{i.Deptname}}</td>
+            <td>{{i.Deptdescription}}</td>
+            
+            <td>
+                <a href="{% url 'deptdel' i.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'deptedit' i.id %}" class="btn btn-warning">Edit</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+{% endblock index%}
